@@ -1,6 +1,4 @@
 #![allow(non_snake_case)]
-#![allow(dead_code)]
-#![allow(unused_variables)]
 
 use std::io;
 use rand::Rng;
@@ -50,7 +48,7 @@ impl Board {
                 }
                 
                 let mut rng = rand::thread_rng();
-                for r in 0..numLiveCells {
+                for _i in 0..numLiveCells {
                     let rowGenerated = rng.gen_range(0, numRows);
                     let colGenerated = rng.gen_range(0, numCols);
 
@@ -69,10 +67,10 @@ fn getInput() -> u32 {
     return trimmed;
 }
 
-fn displayBoard(board: &Board, numRows: usize, numCols: usize) {
+fn displayBoard(board: &Board) {
     println!("-------------------------");
-    for r in 0..numRows {
-        for c in 0..numCols {
+    for r in 0..board.rows {
+        for c in 0..board.cols {
             print!("{}", board.content[r][c].to_string());
         }
         println!();
@@ -80,13 +78,13 @@ fn displayBoard(board: &Board, numRows: usize, numCols: usize) {
     println!("-------------------------Generation done");
 }
 
-fn countNeighbourPopulation(board: &Board, row: usize, col: usize, numRows: usize, numCols: usize) -> i32 {
+fn countNeighbourPopulation(board: &Board, row: usize, col: usize) -> i32 {
     let mut neighborPopulation = 0;
     let mut r = if row > 0 {row - 1} else {0};
     let mut c = if col > 0 {col - 1} else {0};
     while r <= row + 1 {
         while c <= col + 1 {
-            if (r < numRows && c < numCols) && (r != row || c != col) {
+            if (r < board.rows && c < board.cols) && (r != row || c != col) {
                 neighborPopulation += if board.content[r][c].currentState {1} else {0};
             }
             c = c + 1;
@@ -97,8 +95,8 @@ fn countNeighbourPopulation(board: &Board, row: usize, col: usize, numRows: usiz
     return neighborPopulation;
 }
 
-fn assignNextState(board: &mut Board, row: usize, col: usize, numRows: usize, numCols: usize) {
-    let neighborPopulation = countNeighbourPopulation(board, row, col, numRows, numCols);
+fn assignNextState(board: &mut Board, row: usize, col: usize) {
+    let neighborPopulation = countNeighbourPopulation(board, row, col);
     
     if board.content[row][col].currentState {
         if neighborPopulation < 2 || neighborPopulation > 3 {
@@ -111,10 +109,13 @@ fn assignNextState(board: &mut Board, row: usize, col: usize, numRows: usize, nu
     }
 }
 
-fn nextGenerationBoard(board: &mut Board, numRows: usize, numCols: usize) {
+fn nextGenerationBoard(board: &mut Board) {
+    let numRows = board.rows;
+    let numCols = board.cols;
+
     for row in 0..numRows {
         for col in 0..numCols {
-            assignNextState(board, row, col, numRows, numCols);
+            assignNextState(board, row, col);
         }
     }
 
@@ -143,12 +144,12 @@ fn main() {
     numIterations = getInput();
 
     let mut board = Board::new(numRows, numCols, numLiveCells);
-    displayBoard(&board, numRows, numCols);
+    displayBoard(&board);
 
     for i in 0..numIterations {
         println!("Iteration {} done", i + 1);
-        nextGenerationBoard(&mut board, numRows, numCols);
-        displayBoard(&board, numRows, numCols);
+        nextGenerationBoard(&mut board);
+        displayBoard(&board);
     }
 
     println!("Thank you!");
