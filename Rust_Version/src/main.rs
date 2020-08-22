@@ -29,7 +29,7 @@ impl Cell {
         if self.currentState {
             return "0".to_string();
         } else {
-            return " ".to_string();
+            return "_".to_string();
         }
     }
 }
@@ -69,7 +69,7 @@ fn getInput() -> u32 {
     return trimmed;
 }
 
-fn displayBoard(board: Board, numRows: usize, numCols: usize) {
+fn displayBoard(board: &Board, numRows: usize, numCols: usize) {
     println!("-------------------------");
     for r in 0..numRows {
         for c in 0..numCols {
@@ -78,6 +78,51 @@ fn displayBoard(board: Board, numRows: usize, numCols: usize) {
         println!();
     }
     println!("-------------------------Generation done");
+}
+
+fn countNeighbourPopulation(board: &Board, row: usize, col: usize, numRows: usize, numCols: usize) -> i32 {
+    let mut neighborPopulation = 0;
+    let mut r = if row > 0 {row - 1} else {0};
+    let mut c = if col > 0 {col - 1} else {0};
+    while r <= row + 1 {
+        while c <= col + 1 {
+            if (r < numRows && c < numCols) && (r != row || c != col) {
+                neighborPopulation += if board.content[r][c].currentState {1} else {0};
+            }
+            c = c + 1;
+        }
+        r = r + 1;
+    }
+
+    return neighborPopulation;
+}
+
+fn assignNextState(board: &mut Board, row: usize, col: usize, numRows: usize, numCols: usize) {
+    let neighborPopulation = countNeighbourPopulation(board, row, col, numRows, numCols);
+    
+    if board.content[row][col].currentState {
+        if neighborPopulation < 2 || neighborPopulation > 3 {
+            board.content[row][col].nextState = false;
+        }
+    } else {
+        if neighborPopulation == 3 {
+            board.content[row][col].nextState = true;
+        }
+    }
+}
+
+fn nextGenerationBoard(board: &mut Board, numRows: usize, numCols: usize) {
+    for row in 0..numRows {
+        for col in 0..numCols {
+            assignNextState(board, row, col, numRows, numCols);
+        }
+    }
+
+    for row in 0..numRows {
+        for col in 0..numCols {
+            board.content[row][col].currentState = board.content[row][col].nextState;
+        }
+    }
 }
 
 fn main() {
@@ -98,12 +143,12 @@ fn main() {
     numIterations = getInput();
 
     let mut board = Board::new(numRows, numCols, numLiveCells);
-    displayBoard(board, numRows, numCols);
+    displayBoard(&board, numRows, numCols);
 
     for i in 0..numIterations {
         println!("Iteration {} done", i + 1);
-        //board = nextGenerationBoard();
-        //displayBoard(board, numRows, numCols);
+        nextGenerationBoard(&mut board, numRows, numCols);
+        displayBoard(&board, numRows, numCols);
     }
 
     println!("Thank you!");
