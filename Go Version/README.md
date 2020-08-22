@@ -16,7 +16,7 @@ Alternatively, if you want to make life simpler like most of us, please use the 
 Few resources to debug the Go code:
  - 
  
-A commonly used tool to debug is Delve. You can find more about it [here](https://github.com/go-delve/delve). 
+A commonly used tool to debug Go is Delve. You can find more about it [here](https://github.com/go-delve/delve). 
 
 But since, it is a bit too much to be done in 30 minutes, we suggest you to use `fmt.Print()` statements to debug. You can find more information [here](https://golang.org/pkg/fmt/).
  - Example: `fmt.Printf("%d\n", i)` to print value of integer `i`
