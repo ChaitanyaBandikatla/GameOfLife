@@ -7,6 +7,8 @@ Repository for GameOfLife in three different programming languages
 - We get the information on their expertise in three coding languages used in the evaluations from the forms.
 - Using the preferred time slots, we schedule video calls ( preferably via zoom ) for 30 mins.
 - The user is expected to try to debug in all the three languages within the timeframe.
+- Although that is the expectation, the user is free to do what they want to.
+- The user is expected to turn on the video and also share his screen during the entire session.
 - We just take an observation role and document the process of the person debugging the code.
 - We take in all this data and will compile them.
 - We draw inferences from the compilation after eliminating errors in observation.
