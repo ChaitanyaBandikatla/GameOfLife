@@ -11,7 +11,7 @@ type Cell struct {
 }
 
 func createCell(state bool) Cell {
-	c := Cell{currentState= state, nextState= false}
+	c := Cell{currentState: state, nextState: false}
 	return c
 }
 
@@ -68,7 +68,7 @@ func assignNextState(board Board, row int, column int) {
 		newRow := row + i
 		if newRow > -1 && newRow < height {
 			for j := -1; j <= 1; j++ {
-				newColumn := column + i
+				newColumn := column + j
 				if newColumn > -1 && newColumn < width {
 					if !(j == 0 && i == 0) && board.boardContents[newRow][newColumn].currentState {
 						live++
@@ -79,11 +79,11 @@ func assignNextState(board Board, row int, column int) {
 	}
 	if board.boardContents[row][column].currentState {
 		if live < 2 || live > 3 {
-			board.boardContents[row][column].currentState = false
+			board.boardContents[row][column].nextState = false
 		}
 	} else if !board.boardContents[row][column].currentState {
 		if live == 3 {
-			board.boardContents[row][column].currentState = true
+			board.boardContents[row][column].nextState = true
 		}
 	}
 }
