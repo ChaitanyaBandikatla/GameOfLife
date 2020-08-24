@@ -44,7 +44,7 @@ def liveNeighbours(board,i,j,numRows,numCols)
   directions[3] = [1,-1];
   directions[4] = [0,-1];
   directions[5] = [-1,0];
-  directions[6] = [-1,-1];
+  directions[6] = [-1,1];
   directions[7] = [-1,1];
   directions.each do |direction|
     x, y = [i + direction[0], j + direction[1]];
@@ -58,8 +58,8 @@ def liveNeighbours(board,i,j,numRows,numCols)
 end
 
 def generateNextStep(board,numRows, numCols)
-  for i in 0..numRows-1
-    for j in 0..numCols-1
+  for i in 0..numRows
+    for j in 0..numCols
       countLiveCells = liveNeighbours(board,i,j,numRows,numCols);
       if board[i][j] == 0
         if countLiveCells == 3
