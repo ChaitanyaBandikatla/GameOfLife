@@ -103,7 +103,7 @@ fn countNeighbourPopulation(board: &Board, row: usize, col: usize) -> i32 {
     while r <= row + 1 {        
         let mut c = if col > 0 {col - 1} else {0};
         while c <= col + 1 {
-            if (r < board.rows && c < board.cols) && (r != row || c != col) {
+            if (r < board.rows && c < board.cols) {
                 neighborPopulation += if board.content[r][c].currentState {1} else {0};
             }
             c = c + 1;
@@ -155,9 +155,9 @@ fn main() {
     let numIterations: u32;
 
     println!("Please enter the number of rows: ");
-    numRows = getInput() as usize;
+    numRows = getInput();
     println!("Please enter the number of columns: ");
-    numCols = getInput() as usize;
+    numCols = getInput();
     println!("Please enter the number of live cells: ");
     numLiveCells = getInput();
     println!("Please enter the number of iterations: ");
