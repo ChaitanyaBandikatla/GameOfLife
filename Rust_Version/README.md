@@ -14,6 +14,7 @@ To build and run the game of life on *your machine*, follow the below steps:
  - The code would print the board after every iteration!
  
 **2. Use online Rust playground**
+
 Alternatively if you want to make your life simpler, you can use this online [playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=3f20ae37c8fe6df22c60ba7821113d76).
 
 Please note that the rust playground does not support standard input. So, if you would like to change the parameter values, you need to change them directly in the code in `main` function. The part of the code responsible for inputs has been commented out.
