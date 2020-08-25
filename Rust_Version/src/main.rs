@@ -120,7 +120,7 @@ fn assignNextState(board: &mut Board, row: usize, col: usize) {
         if neighborPopulation < 2 || neighborPopulation > 3 {
             board.content[row][col].nextState = false;
         } else if neighborPopulation == 2 || neighborPopulation == 3 {
-            board.content[row][col].nextState = true;
+            board.content[row][col].nextState = false;
         }
     } else {
         if neighborPopulation == 3 {
