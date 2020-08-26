@@ -1,5 +1,5 @@
 def assignLives(board, numRows, numCols, numLiveCells)
-  for i in 0..numLiveCells-1
+  for i on 0..numLiveCells-1
     rowRand = rand(numRows);
     colRand = rand(numCols);
     if(board[rowRand][colRand]==1)
