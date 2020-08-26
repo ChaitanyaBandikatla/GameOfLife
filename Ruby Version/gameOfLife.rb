@@ -28,7 +28,7 @@ def printBoard(board,numRows,numCols)
       if board[i][j] == 1
         print"O";
       elsif board[i][j] == 0
-        print "X";
+        print " ";
       end
     end
     puts();
