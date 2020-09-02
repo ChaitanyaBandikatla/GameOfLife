@@ -25,7 +25,11 @@
   <li>Time taken by candidates unfamiliar in the language to debug compilation errors<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/compilation_unfamiliar_time.PNG"></li>
 </ol>
 <p><b>The following observations were made for Logical Errors:</b></p>
-Time taken to debug logical errors in Ruby, Rust and Go<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/logical_debug_time.PNG">
+<ol>
+<li>Time taken to debug logical errors in Ruby, Rust and Go<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/logical_debug_time.PNG"></li>
+  <li>Time taken by candidates familiar in the language to debug logical errors<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/logical_familiar_time.PNG"></li>
+  <li>Time taken by candidates unfamiliar in the language to debug logical errors<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/logical_unfamiliar_time.PNG"></li>
+  </ol>
 <h2>Conclusion</h2>
 <ol>
   <li>Candidates were most familiar with Ruby and least familiar with Rust.</li>
