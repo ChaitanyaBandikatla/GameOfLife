@@ -20,16 +20,18 @@
 <h2>Observations</h2>
 <p><b>The following observations were made for Compilation Errors:</b></p>
 <ol>
-  <li>Time taken to debug compilation errors in Ruby, Rust and Go<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/compilation_debug_time.PNG"></li>
-  <li>Time taken by candidates familiar in the language to debug compilation errors<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/compilation_familiar_time.PNG"></li>
-  <li>Time taken by candidates unfamiliar in the language to debug compilation errors<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/compilation_unfamiliar_time.PNG"></li>
+  <li>Time taken to debug compilation errors in Ruby, Rust and Go<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/compilation_debug_time.PNG"><br>Candidates took more time to debug compilation erros in Ruby when compared to Rust and Go</li>
+  <li>Time taken by candidates familiar in the language to debug compilation errors<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/compilation_familiar_time.PNG"><br>With respect to our pre-debugging session census, we found that C</li>
+  <li>Time taken by candidates unfamiliar in the language to debug compilation errors<img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/compilation_unfamiliar_time.PNG"></li>
 </ol>
+<p>In our pre-debugging sessions census, we asked the level of familiarity of the 3 languages by each candidate. Based on the results, we found that there  is very minute difference to debug a complication error with prior knowledge of the language.</p>
 <p><b>The following observations were made for Logical Errors:</b></p>
 <ol>
-<li>Time taken to debug logical errors in Ruby, Rust and Go<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/logical_debug_time.PNG"></li>
+<li>Time taken to debug logical errors in Ruby, Rust and Go<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/logical_debug_time.PNG"><br>Candiates took the most time to debug logical errors in Rust, followed by Go and then Ruby.</li>
   <li>Time taken by candidates familiar in the language to debug logical errors<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/logical_familiar_time.PNG"></li>
   <li>Time taken by candidates unfamiliar in the language to debug logical errors<br><img src="https://github.com/ChaitanyaBandikatla/GameOfLife/blob/master/img/logical_unfamiliar_time.PNG"></li>
   </ol>
+<p>Based on the results, we found that only people who are unfamilair in Rust and Ruby took more time than people knew the language before. The reults for Go seems almost similar with people who know the language or not.</p>
 <h2>Conclusion</h2>
 <ol>
   <li>Candidates were most familiar with Ruby and least familiar with Rust.</li>
@@ -49,7 +51,7 @@
     <td>We should have timed and taken the debugging sessions ourselves to observe how we debug the bugs we created.</td>
   </tr>
   <tr>
-    <td>We didn't have a standardised code testings as we introduced different kinds of bus in different languages.</td>
+    <td>We didn't have a standardised code testings as we introduced different kinds of bugs in different languages.</td>
     <td>We should have introduced the same bugs in all the languages and asked the candidates to debug in the language that they are the most familiar with.</td>
   </tr>
   <tr>
