@@ -14,7 +14,6 @@
 <h2>Materials</h2>
 <ol>
   <li><a href="https://forms.gle/dGQZxhJNkcengY2d9">Sign Up Link Sheet</a></li>
-  <li><a href="https://tinyurl.com/y4kfdams">Sign Up Sheet Responses</a></li>
   <li><a href="https://tinyurl.com/y5we29rn">Evaluation Sheet</a></li>
 </ol>
 <h2>Observations</h2>
